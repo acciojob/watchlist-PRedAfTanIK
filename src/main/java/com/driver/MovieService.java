@@ -8,11 +8,13 @@ import java.util.List;
 public class MovieService {
     MovieRepository movieRepository = new MovieRepository();
 
-    public boolean addMovie(Movie movie){
-        return movieRepository.addMovie(movie);
+    public String addMovie(Movie movie){
+        if(movieRepository.addMovie(movie)) return "Movie Added Successfully";
+        return "There was some error while adding the movie";
     }
-    public boolean addDirector(Director director){
-        return movieRepository.addDirector(director);
+    public String addDirector(Director director){
+        if(movieRepository.addDirector(director)) return "Director added successfully";
+        return "There was some error while adding the director";
     }
     public void addDirectorAndMovie(String movie,String director){
         movieRepository.addMovieToDirector(movie,director);
